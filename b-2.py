@@ -1,9 +1,9 @@
-for i in range(1, 5):
-    for j in range(1, 7):
-        print(i * j, end=" ")
-    print()
+rows = int(input("行数を入力してください: "))
+cols = int(input("列数を入力してください: "))
 
-for i in range(1, 13):
-    for j in range(1, 13):
-        print(i * j, end=" ")
-    print()
+# 行列の生成
+matrix = [[(i+1)*(j+1) for j in range(cols)] for i in range(rows)]
+
+# 行列の表示
+for row in matrix:
+    print(' '.join(map(str, row)))
