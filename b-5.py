@@ -1,35 +1,41 @@
-def main():
-    # データ入力を受け取る
-    data = input("データを入力してください(スペース区切り) > ").split()
-
-    # 入力データを整数リストに変換
-    numbers = list(map(int, data))
-
-    # 合計値
+# 合計値
+def calculate_sum(numbers):
     total = 0
-    for number in numbers:
-        total += number
+    for num in numbers:
+        total += num
+    return total
 
-    # 最大値
+
+# 最大値
+def calculate_max(numbers):
     maximum = numbers[0]
-    for number in numbers:
-        if number > maximum:
-            maximum = number
+    for num in numbers:
+        if num > maximum:
+            maximum = num
+    return maximum
 
-    # 最小値
+
+# 最小値
+def calculate_min(numbers):
     minimum = numbers[0]
-    for number in numbers:
-        if number < minimum:
-            minimum = number
-
-    # 平均値
-    average = total // len(numbers)
-
-    print(f"合計値: {total}")
-    print(f"最大値: {maximum}")
-    print(f"最小値: {minimum}")
-    print(f"平均値: {average}")
+    for num in numbers:
+        if num < minimum:
+            minimum = num
+    return minimum
 
 
-if __name__ == "__main__":
-    main()
+# 平均値
+def calculate_mean(numbers):
+    total = calculate_sum(numbers)
+    mean = total // len(numbers)  # 小数点を省くために整数除算を使用
+    return mean
+
+
+data = input("データを入力してください(スペース区切り) > ")
+
+numbers = list(map(int, data.split()))
+
+print(f"合計値: {calculate_sum(numbers)}")
+print(f"最大値: {calculate_max(numbers)}")
+print(f"最小値: {calculate_min(numbers)}")
+print(f"平均値: {calculate_mean(numbers)}")
